@@ -20,9 +20,11 @@
                     <form action="/" method="get">
                         <label for="categories">Список категорий</label>
                         <select class="form-control" id="categories" name="select_category_id">
-                            @foreach ($list_categories as $item)
-                                <option value="{{$item['id']}}" @if ($item['id'] == $select_category_id) selected @endif>{{$item['name']}}</option>
-                            @endforeach                        
+                            @if ($list_categories)
+                                @foreach ($list_categories as $item)
+                                    <option value="{{$item['id']}}" @if ($item['id'] == $select_category_id) selected @endif>{{$item['name']}}</option>
+                                @endforeach       
+                            @endif                 
                         </select>
 
                         <label for="category_name">Изменить выбранную катеорию</label>

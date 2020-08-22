@@ -85,21 +85,23 @@
                             @endif
                             placeholder="Новое имя для продукта"
                         >
-                            @foreach ($list_categories as $item)   
-                                <div class="form-check">
-                                        <input 
-                                            type="checkbox" 
-                                            name="product_categories[]" 
-                                            value="{{$item['id']}}" 
-                                            class="form-check-input form-check-inline" 
-                                            id="exampleCheck-{{$item['id']}}" 
-                                            @if (in_array($item['id'], $selected_categories_from_this_product))
-                                                checked
-                                            @endif
-                                        >
-                                        <label class="form-check-label" for="exampleCheck-{{$item['id']}}">{{$item['name']}}</label>                      
-                                </div>
-                            @endforeach 
+                            @if ($list_categories)
+                                @foreach ($list_categories as $item)   
+                                    <div class="form-check">
+                                            <input 
+                                                type="checkbox" 
+                                                name="product_categories[]" 
+                                                value="{{$item['id']}}" 
+                                                class="form-check-input form-check-inline" 
+                                                id="exampleCheck-{{$item['id']}}" 
+                                                @if (in_array($item['id'], $selected_categories_from_this_product))
+                                                    checked
+                                                @endif
+                                            >
+                                            <label class="form-check-label" for="exampleCheck-{{$item['id']}}">{{$item['name']}}</label>                      
+                                    </div>
+                                @endforeach 
+                            @endif
                         <input 
                             type="hidden" 
                             name="selected_product_id" 
